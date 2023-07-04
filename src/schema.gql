@@ -1,0 +1,46 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateUserInput {
+  email: String!
+  name: String!
+  role: String!
+}
+
+type DeleteResponse {
+  message: String!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): UserR!
+  fileupload(file: Upload!): String!
+  fileuploads(files: [Upload!]!): String!
+  removePractice(id: Int!): DeleteResponse!
+  updatePractice(id: Int!, input: UpdateUserInput!): Boolean!
+}
+
+type Query {
+  findAll(limit: Int, page: Int, search_text: String!): [UserR!]!
+  findOne(id: Int!): UserR!
+}
+
+type Subscription {
+  emailAdded: String!
+}
+
+input UpdateUserInput {
+  email: String
+  name: String
+  role: String
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+type UserR {
+  email: String!
+  id: Int!
+  name: String!
+  role: String!
+}
